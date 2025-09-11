@@ -3,7 +3,7 @@ project_name: terraform-provider-cloudlab
 
 builds:
   - id: provider
-    main: ./cmd/terraform-provider-portal     # your main()
+    main: ./cmd/terraform-provider-cloudlab     # your main()
     env:
       - CGO_ENABLED=0
     goos: [linux, darwin, windows]
