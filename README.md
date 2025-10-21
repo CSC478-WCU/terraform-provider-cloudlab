@@ -1,3 +1,5 @@
+![Terraform Provider Downloads](https://img.shields.io/terraform/provider/dt/846963?style=plastic&logo=terraform&logoColor=%237B42BC&label=Terraform%20Downloads&color=%237B42BC&link=https%3A%2F%2Fregistry.terraform.io%2Fproviders%2FCSC478-WCU%2Fcloudlab%2Flatest)
+
 ```
 provider "cloudlab" {
   project  = "YOUR_PROJECT"         # required (here or on the resource)
