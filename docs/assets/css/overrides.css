@@ -1,0 +1,104 @@
+/* -------------------------------------------------------
+   Brand palette + Material color variables
+   -------------------------------------------------------
+   Terraform (Primary): #7B42BC  (PMS 266 C)
+   Terraform Alt (Accent/Contrast): #A067DA (PMS 265 C)
+   Vagrant (Utility): #2E71E5 (PMS 285 C)
+-------------------------------------------------------- */
+
+:root {
+    --brand-primary: #7B42BC;
+    /* Terraform Purple */
+    --brand-alt: #A067DA;
+    /* Alternate Terraform Purple */
+    --brand-vagrant: #2E71E5;
+    /* Vagrant Blue */
+
+    /* Material primary & accent (light theme) */
+    --md-primary-fg-color: var(--brand-primary);
+    --md-primary-fg-color--light: color-mix(in oklab, var(--brand-primary) 85%, white);
+    --md-primary-fg-color--dark: color-mix(in oklab, var(--brand-primary) 85%, black);
+
+    --md-accent-fg-color: var(--brand-alt);
+
+    /* Links lean toward brand */
+    --md-typeset-a-color: var(--brand-primary);
+}
+
+/* Dark theme: use alternate Terraform purple as primary for contrast */
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: var(--brand-alt);
+    --md-primary-fg-color--light: color-mix(in oklab, var(--brand-alt) 75%, white);
+    --md-primary-fg-color--dark: color-mix(in oklab, var(--brand-alt) 90%, black);
+
+    --md-accent-fg-color: var(--brand-primary);
+
+    /* Dark-mode links often look better with the accent */
+    --md-typeset-a-color: var(--brand-alt);
+}
+
+/* Subtle brand-tinted header shadow */
+.md-header {
+    box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--md-primary-fg-color) 14%, transparent),
+        0 2px 6px color-mix(in oklab, var(--md-primary-fg-color) 18%, transparent);
+}
+
+/* ------------------------------------------
+   Header (top-left) logo sizing & spacing
+   Requires: theme.logo: assets/cloudlab-flask.png in mkdocs.yml
+------------------------------------------- */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 28px;
+    /* tweak 24–36px as needed */
+    width: auto;
+}
+
+.md-header__button.md-logo {
+    padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+}
+
+/* ------------------------------------------
+   Optional: in-page (top-right) logo swap
+   If you kept the <a class="brand-logos">…</a> block in index.md
+------------------------------------------- */
+.brand-logos {
+    float: right;
+    margin-left: 12px;
+}
+
+.brand-logos img {
+    height: 34px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.brand-logos .logo--light {
+    display: inline;
+}
+
+.brand-logos .logo--dark {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] .brand-logos .logo--light {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] .brand-logos .logo--dark {
+    display: inline;
+}
+
+/* ------------------------------------------
+   Utility helpers (optional)
+------------------------------------------- */
+.badge--vagrant {
+    background: color-mix(in oklab, var(--brand-vagrant) 16%, transparent);
+    border: 1px solid var(--brand-vagrant);
+}
+
+.badge--tf {
+    background: color-mix(in oklab, var(--brand-primary) 16%, transparent);
+    border: 1px solid var(--brand-primary);
+}

@@ -1,0 +1,69 @@
+site_name: CloudLab Terraform Provider
+site_description: Documentation for using Terraform with the CloudLab academic testbed
+repo_url: https://github.com/CSC478-WCU/terraform-provider-cloudlab
+repo_name: CSC478-WCU/terraform-provider-cloudlab
+edit_uri: blob/main/docs/
+
+theme:
+  logo: assets/images/cloudlab-flask.png
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+    - header.autohide
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Docs:
+    - Provider Overview: provider.md
+    - Auth / Pem Path: auth.md
+    - Usage Guide: usage.md
+    - License: license.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences:
+      custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - assets/css/overrides.css
