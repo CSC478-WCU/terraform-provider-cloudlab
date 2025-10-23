@@ -2,7 +2,7 @@ site_name: CloudLab Terraform Provider
 site_description: Documentation for automating CloudLab experiments with Terraform
 repo_url: https://github.com/CSC478-WCU/terraform-provider-cloudlab
 repo_name: CSC478-WCU/terraform-provider-cloudlab
-edit_uri: blob/main/docs/
+edit_uri: edit/docs/docs/
 
 
 theme:
