@@ -2,11 +2,10 @@ name: Deploy MkDocs to GitHub Pages
 
 on:
     push:
-        branches: [pages]
+        branches: [docs]
         paths:
-            - "pages/**"
+            - "docs/**"
             - "mkdocs.yml"
-            - ".github/workflows/deploy-pages.yml"
     workflow_dispatch:
 
 permissions:
@@ -25,7 +24,7 @@ jobs:
             - name: Checkout (pages branch)
               uses: actions/checkout@v4
               with:
-                  ref: pages
+                  ref: docs
 
             - name: Setup Python
               uses: actions/setup-python@v5
