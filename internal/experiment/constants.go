@@ -32,13 +32,11 @@ var statusRank = func() map[string]int {
 	for i, s := range statusOrder {
 		m[strings.ToLower(s)] = i + 1
 	}
-	// common site/output variants & synonyms
 	m["starting"] = m[StatusBooting]
 	m["started"] = m[StatusBooted]
 	m["running"] = m[StatusBooted]
 	m["up"] = m[StatusBooted]
 	m["booted/provisioned"] = m[StatusBooted]
-	// tolerate old terms if they appear
 	m["swapped"] = m[StatusProvisioned]
 	m["swapped-in"] = m[StatusProvisioned]
 	return m
