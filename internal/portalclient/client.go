@@ -28,7 +28,7 @@ func New(o Options) (*portal.Client, error) {
 }
 
 // ----- High-level helpers (provider-friendly) -----
-// StartExperiment is pass-through; your params already contain project/name.
+// StartExperiment is pass-through; params already contain project/name.
 func StartExperiment(c *portal.Client, params map[string]any) (*portal.EmulabResponse, error) {
 	return c.StartExperiment(params)
 }
@@ -52,8 +52,6 @@ func Manifests(c *portal.Client, project, exp string) (*portal.EmulabResponse, e
 	return c.ExperimentManifests(combined)
 }
 
-// Wait delegates to your portal client’s waiter (if you keep it);
-// otherwise prefer helper/retry.StateChangeConf in the resource.
 func Wait(ctx context.Context, c *portal.Client, exp string, interval, timeout time.Duration, done func(*portal.StatusPayload) bool) (*portal.StatusPayload, error) {
 	return c.WaitForStatus(ctx, exp, interval, timeout, done)
 }
