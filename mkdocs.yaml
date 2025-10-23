@@ -1,20 +1,20 @@
 site_name: CloudLab Terraform Provider
-site_description: Documentation for using Terraform with the CloudLab academic testbed
+site_description: Documentation for automating CloudLab experiments with Terraform
 repo_url: https://github.com/CSC478-WCU/terraform-provider-cloudlab
 repo_name: CSC478-WCU/terraform-provider-cloudlab
 edit_uri: blob/main/docs/
 
+
 theme:
-  logo: assets/images/cloudlab-flask.png
   name: material
+  logo: assets/images/cloudlab-flask.png
   features:
     - navigation.instant
-    - navigation.tracking
     - navigation.expand
-    - navigation.top
-    - toc.integrate
+    - navigation.tracking
     - content.code.copy
     - header.autohide
+    - content.tabs.link
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -27,13 +27,22 @@ theme:
         icon: material/weather-sunny
         name: Switch to light mode
 
+
 nav:
   - Home: index.md
-  - Docs:
-    - Provider Overview: provider.md
-    - Auth / Pem Path: auth.md
-    - Usage Guide: usage.md
-    - License: license.md
+  - Overview:
+      - Introduction: overview/introduction.md
+      - What Is CloudLab: overview/cloudlab.md
+      - Why Terraform: overview/why-terraform.md
+  - Usage Guides:
+      - Getting Started: usage/getting-started.md
+      - Authentication (PEM): usage/auth.md
+      - Terraform Basics: usage/what-is-terraform.md
+      - Usage Guide: usage/usage.md
+      - CI/CD With Github Actions: usage/github-actions.md
+  - How It Works:
+      - Provider Architecture: internals/architecture.md
+  - License: license.md
 
 plugins:
   - search
@@ -54,16 +63,18 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
-
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.superfences:
       custom_fences:
-      - name: mermaid
-        class: mermaid
-        format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 extra_css:
   - assets/css/overrides.css
+
+extra:
+  copyright: Tyler Geiger — West Chester University · Educational and research use. Not affiliated with the official CloudLab team.
