@@ -126,7 +126,7 @@ This creates **1 admin node** (`kubeadm`) and **N workers**, places all nodes on
 
 ```hcl
 resource "cloudlab_portal_experiment" "experiment_name" {
-  name            = "CampusConnect"
+  name            = "your_exp_name"
   wait_for_status = "ready"
 
   # kubeadm + worker1..workerN
