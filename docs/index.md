@@ -10,7 +10,7 @@
 
     **Author**: [Tyler Geiger](https://www.linkedin.com/in/tyler-geiger) — West Chester University  
     
-    **Thanks to my professor:** [Dr. Linh Ngo](https://www.cs.wcupa.edu/LNGO).
+    Thanks to my professor, **Dr. Linh Ngo**, for inspiring this work through his Cloud Computing course at West Chester University.
 
     **Inspiration**: UCY-COAST — [terraform-provider-cloudlab](https://github.com/ucy-coast/terraform-provider-cloudlab)  
 
