@@ -9,51 +9,68 @@
 
 [![GitHub Tag](https://img.shields.io/github/v/tag/CSC478-WCU/terraform-provider-cloudlab?style=plastic&logo=terraform&logoColor=%23844FBA&label=latest&color=%23844FBA&link=https%3A%2F%2Fgithub.com%2FCSC478-WCU%2Fterraform-provider-cloudlab%2Freleases)](https://github.com/CSC478-WCU/terraform-provider-fabric/releases) [![Terraform Provider Downloads](https://img.shields.io/terraform/provider/dt/846963?style=plastic&logo=terraform&logoColor=%237B42BC&label=Terraform%20Downloads&color=%237B42BC&link=https%3A%2F%2Fregistry.terraform.io%2Fproviders%2FCSC478-WCU%2Fcloudlab%2Flatest)](https://registry.terraform.io/providers/CSC478-WCU/cloudlab)
 
-# Terraform Provider for Cloudlab 
+# CloudLab Terraform Provider
 
-```
+A Terraform provider that automates **CloudLab** experiments using standard IaC workflows.
+
+**Full documentation:** [csc478-wcu.github.io/terraform-provider-cloudlab](https://csc478-wcu.github.io/terraform-provider-cloudlab)
+
+---
+
+## Quick Start
+
+Add the provider and configure credentials:
+
+```hcl
+terraform {
+  required_version = ">= 1.5.0"
+  required_providers {
+    cloudlab = {
+      source  = "CSC478-WCU/cloudlab"
+      version = ">= 1.0.4"
+    }
+  }
+}
+
 provider "cloudlab" {
-  project  = "YOUR_PROJECT"         # required (here or on the resource)
-  pem_path = "~/.ssl/emulab.pem"
+  project  = "your-project"
+  pem_path = "~/cloudlab_decrypted.pem"
   server   = "boss.emulab.net"
   port     = 3069
   path     = "/usr/testbed"
-  timeout  = "30m"
+  timeout  = "15m"
 }
 
 resource "cloudlab_portal_experiment" "demo" {
-  name            = "tf-demo-001"
-  wait_for_status = "provisioned"   # or "ready"
+  name            = "tf-demo"
+  project         = "your-project"
+  wait_for_status = "provisioned"
 
   rawpc {
-    name           = "host1"
-    hardware_type  = "d430"
-    exclusive      = true
-    routable_ip    = true
-
-    blockstore {
-      name    = "bs1"
-      mount   = "/data1"
-      size_gb = 20
-    }
-  }
-
-  xenvm {
-    name           = "vm1"
-    cores          = 2
-    ram_mb         = 4096
-    disk_gb        = 20
-    instantiate_on = "host1"
-    routable_ip    = true
-  }
-
-  lan {
-    name = "lan0"
-    interface { node = "host1" }
-    interface { node = "vm1" }
+    name          = "node0"
+    hardware_type = "r320"  # e.g., APT
+    exclusive     = true
+    aggregate     = "urn:publicid:IDN+apt.emulab.net+authority+cm"
+    routable_ip   = true
   }
 }
+````
 
-output "url"   { value = cloudlab_portal_experiment.demo.url }
-output "nodes" { value = cloudlab_portal_experiment.demo.nodes }
+```bash
+terraform init
+terraform apply
 ```
+
+---
+
+## Links
+
+* Docs: [https://csc478-wcu.github.io/terraform-provider-cloudlab/#overview](https://csc478-wcu.github.io/terraform-provider-cloudlab/#overview)
+* Registry: [https://registry.terraform.io/providers/CSC478-WCU/cloudlab](https://registry.terraform.io/providers/CSC478-WCU/cloudlab)
+* Releases: [https://github.com/CSC478-WCU/terraform-provider-cloudlab/releases](https://github.com/CSC478-WCU/terraform-provider-cloudlab/releases)
+
+---
+
+## License
+
+MIT — see [`LICENSE`](./LICENSE).
