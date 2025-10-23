@@ -6,14 +6,18 @@
 
 ---
 
-!!! example "Project Information"
+!!! example "Provider Information"
 
-    **Author**: Tyler Geiger — West Chester University  
-    **Thanks to my professor:** Dr. Linh Ngo  
+    **Author**: [Tyler Geiger](https://www.linkedin.com/in/tyler-geiger) — West Chester University  
+    
+    **Thanks to my professor:** [Dr. Linh Ngo](https://www.cs.wcupa.edu/LNGO).
+
     **Inspiration**: UCY-COAST — [terraform-provider-cloudlab](https://github.com/ucy-coast/terraform-provider-cloudlab)  
 
-    Built as an independent project in *Cloud Computing* at West Chester University.  
+    Built as an independent provider to support our main full-stack Cloud Computing project *CampusConnect* at West Chester University.
+    The goal was to enable reproducible Infrastructure-as-Code (IaC) deployments on CloudLab for academic research and teaching.
     Acknowledgments to the Terraform and CloudLab communities for foundational tooling and research infrastructure.
+
 
 ---
 
