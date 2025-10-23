@@ -212,7 +212,7 @@ localhost ansible_connection=local
   gather_facts: false
   vars:
     nodes: "{{ nodes_json | from_json }}"
-    ssh_user: "{{ ssh_user | default('geni') }}"
+    ssh_user: "{{ ssh_user | default('your_username') }}" # Change default to your cloudlab username
   tasks:
     - name: Register CloudLab nodes from Terraform outputs
       add_host:
